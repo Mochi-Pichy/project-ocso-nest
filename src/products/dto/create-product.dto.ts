@@ -1,7 +1,19 @@
+import {IsInt ,IsNumber, IsOptional, IsString, IsUUID, MaxLength } from "class-validator";
+
 export class CreateProductDto {
-    productId: string;
+    @IsString()
+    @IsUUID("4")
+    @IsOptional()
+    productId?: string;
+    @IsString()
+    @MaxLength(40)
     productName: string;
+    @IsNumber()
     price: number;
+    @IsInt()
     countSell: number;
+    @IsString()
+    @IsUUID()
+    @IsOptional()
     provider: string;
 }
